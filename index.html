@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RadiumLabs แล็ปการตลาด</title>
+
+  <!-- ฟอนต์ -->
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header fade-in">
+    <img src="https://img5.pic.in.th/file/secure-sv1/Artboard-3c7b4072eb9de0261.md.png" 
+         alt="RadiumLabs Logo" class="logo"/>
+    <h1>RadiumLabs แล็ปการตลาด</h1>
+    <p>Exclusive Tools & Frameworks สำหรับ SME ไทย</p>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-freebie fade-in-up">
+    <div class="hero-card">
+      <div class="badge">🔥 Available Now</div>
+      <h2>Radium Framework Automation</h2>
+      <p>
+        ระบบวิเคราะห์ธุรกิจอัตโนมัติผ่าน <strong>Make + Google Sheets</strong> 
+        เพื่อสร้างรายงานกลยุทธ์การตลาดที่ Personalized และส่งกลับไปใน LINE ของคุณ
+      </p>
+      <div class="btn-group">
+        <button class="btn secondary" onclick="openDetail()">เรียนรู้เพิ่มเติม</button>
+        <button class="btn" onclick="openFramework()">เริ่มการวิเคราะห์ฟรี!</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Popup Detail -->
+  <div id="detailPopup" class="popup hidden">
+    <div class="popup-content scrollable">
+      <h2>🧩 Radium Framework Automation</h2>
+      <p><strong>Input (Google Form → Google Sheet → Make)</strong></p>
+      <ul>
+        <li>ลูกค้ากรอกฟอร์ม → เก็บใน Google Sheet → Trigger ที่ Make</li>
+        <li>ฟิลด์สำคัญ เช่น ประเภทธุรกิจ, Format, B2B/B2C, Motivation, Budget, Problem, LINE User ID</li>
+      </ul>
+
+      <p><strong>Process (Make Automation Flow)</strong></p>
+      <ol>
+        <li>Trigger: New row ใน Google Sheet</li>
+        <li>Data Parsing → ส่งเข้า AI (GPT-5 + Radium Framework Prompt)</li>
+        <li>AI วิเคราะห์ + Sanity Check + สร้าง Segment</li>
+        <li>Make แปลงผลลัพธ์ → Template Docs → PDF</li>
+        <li>ส่งรายงานกลับ LINE OA ของลูกค้า</li>
+      </ol>
+
+      <p><strong>Output (Official Business Report – Free Version)</strong></p>
+      <ul>
+        <li>ภาพรวมธุรกิจ (Segment + เหตุผล)</li>
+        <li>คำแนะนำเชิงกลยุทธ์ (Priority, Budget Split, ช่องทางคุ้มค่า)</li>
+        <li>แผนการตลาด (Funnel, Retargeting, Drop-off)</li>
+        <li>Quick Wins (สิ่งที่ทำได้ใน 7 วัน)</li>
+      </ul>
+
+      <p><strong>Upsell (880 Version – สิทธิ์จำกัด)</strong></p>
+      <ul>
+        <li>Deep-Dive Competitor Map</li>
+        <li>Custom Full Funnel Plan</li>
+        <li>Profit Optimization Model</li>
+        <li>Ready-to-Launch Assets (Content Brief + Ads Template)</li>
+        <li>1:1 Strategy Call</li>
+      </ul>
+
+      <div class="btn-group">
+        <button class="btn small" onclick="closeDetail()">ปิด</button>
+        <button class="btn" onclick="openFramework()">เริ่มการวิเคราะห์ฟรี!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    © 2025 RadiumLabs · แล็ปการตลาด
+  </footer>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
