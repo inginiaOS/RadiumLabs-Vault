@@ -183,36 +183,38 @@ body {
 }
 
 /* ==== NOTIFY BOX ==== */
+/* ==== NOTIFY BOX ==== */
 .notify-box {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   background: rgba(20,20,20,0.95);
-  padding: 1rem 1.5rem;
+  padding: 1rem 1.2rem;
   display: flex;
   flex-direction: column; /* จัดเรียงแนวตั้ง */
   justify-content: center;
   align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+  gap: 0.8rem;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
   z-index: 999;
   text-align: center;
+  box-sizing: border-box; /* ✅ ป้องกัน overflow */
 }
 
 .notify-box p {
   margin: 0;
   font-size: 0.95rem;
   color: #ddd;
-  max-width: 600px;
+  max-width: 90%;   /* ✅ ไม่ชนขอบจอ */
 }
 
 .notify-box button {
-  max-width: 320px; /* จำกัดขนาดปุ่ม */
+  max-width: 280px; /* ✅ จำกัดความกว้าง */
   width: 100%;
+  box-sizing: border-box; /* ✅ ป้องกันล้น */
+  border-radius: 12px;
 }
-
 /* ==== POPUP ==== */
 .popup {
   position: fixed;
