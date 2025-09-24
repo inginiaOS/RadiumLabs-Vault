@@ -10,13 +10,46 @@ function closeDetail() {
 }
 
 // ==== Framework Redirect ====
+// ==== Framework Redirect with Tracking ====
 function openFramework() {
-  console.log("📌 Redirecting to Radium Framework Analysis");
-  liff.openWindow({
-    url: "https://inginiaos-liff.netlify.app/",
-    external: false // ✅ เปิดใน LINE Browser
-  });
+  console.log("📌 User clicked Start Framework");
+
+  liff.init({ liffId: "2007908663-nyGaxRLe" })
+    .then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        return liff.getProfile();
+      }
+    })
+    .then(profile => {
+      if (!profile) throw new Error("⚠️ Profile not found");
+
+      // ส่ง event ไป Make
+      return fetch("https://hook.eu2.make.com/4lmcb99if8p9e2x9oj16ednpx3q66u9g", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lineUserId: profile.userId,
+          displayName: profile.displayName,
+          action: "start_framework",
+          timestamp: new Date().toISOString()
+        })
+      });
+    })
+    .then(() => {
+      // เมื่อ track เสร็จ → พา user ไปที่ LIFF Framework
+      liff.openWindow({
+        url: "https://inginiaos-liff.netlify.app/",
+        external: false
+      });
+    })
+    .catch(err => {
+      console.error("❌ Error in openFramework:", err);
+      alert("⚠️ เกิดข้อผิดพลาด โปรดลองอีกครั้ง");
+    });
 }
+
 
 // ==== Subscribe to Notify (LINE LIFF + Make Webhook) ====
 function subscribeNotify() {
