@@ -1,7 +1,6 @@
 :root {
   --radium-green: #00ff88;
   --radium-dark: #0a0a0a;
-  --radium-gray: #141414;
   --radium-card: #1d1d1d;
 }
 
@@ -14,34 +13,94 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== Header ===== */
-.header {
+/* ==== HERO SECTION ==== */
+.hero-section {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  background: url("https://img5.pic.in.th/file/secure-sv1/unnamed2b9fcba0b85c2c85.png") center/cover no-repeat;
+  color: white;
+  overflow: hidden;
 }
 
-.logo {
-  max-width: 180px;
+.hero-overlay {
+  background: rgba(0,0,0,0.55);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
   margin-bottom: 1rem;
+  text-shadow: 0 0 20px rgba(0,255,136,0.6);
 }
 
-.header h1 {
-  font-size: 2.2rem;
-  color: var(--radium-green);
-  margin: 0.5rem 0;
+.hero-content p {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  color: #eee;
+  line-height: 1.6;
+}
+
+/* ✅ Apple-style Curve */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: var(--radium-dark);
+  clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+/* ==== BUTTONS ==== */
+.btn {
+  background: var(--radium-green);
+  color: var(--radium-dark);
   font-weight: 600;
-  text-shadow: 0 0 15px rgba(0,255,136,0.4);
-}
-
-.header p {
-  color: #aaa;
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
   font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-/* ===== Hero Card ===== */
+.btn:hover {
+  background: #00cc6a;
+  box-shadow: 0 0 15px rgba(0,255,136,0.5);
+  transform: translateY(-2px);
+}
+
+.btn.small {
+  font-size: 0.9rem;
+  padding: 0.6rem 1.2rem;
+}
+
+.btn.secondary {
+  background: transparent;
+  color: var(--radium-green);
+  border: 1.5px solid var(--radium-green);
+}
+
+.btn.secondary:hover {
+  background: rgba(0,255,136,0.1);
+}
+
+/* ==== HERO CARD ==== */
 .hero-freebie {
   max-width: 900px;
-  margin: 2rem auto;
+  margin: 0rem auto; /* ลดช่องว่างลง */
   padding: 0 1rem;
 }
 
@@ -51,7 +110,6 @@ body {
   border-radius: 24px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -72,61 +130,81 @@ body {
   margin-bottom: 2rem;
 }
 
-.badge {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  background: var(--radium-green);
-  color: var(--radium-dark);
-  font-size: 0.8rem;
-  padding: 0.3rem 0.8rem;
+/* ==== COMING SOON ==== */
+.coming-soon {
+  max-width: 1100px;
+  margin: 3rem auto 6rem;
+  padding: 0 1rem;
+}
+
+.coming-soon h3 {
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.freebie-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--radium-card);
   border-radius: 20px;
-  font-weight: 600;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ===== Button ===== */
-.btn-group {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
+.card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,255,136,0.2);
 }
 
-.btn {
-  padding: 0.9rem 2rem;
-  border-radius: 50px;
-  background: linear-gradient(135deg, var(--radium-green), #66ffcc);
-  color: var(--radium-dark);
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.card .icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.btn:hover {
-  background: white;
-  color: var(--radium-dark);
-  box-shadow: 0 0 20px rgba(0,255,136,0.5);
-}
-
-.btn.secondary {
-  background: transparent;
-  border: 1px solid var(--radium-green);
+.card h4 {
   color: var(--radium-green);
+  margin: 0.5rem 0;
 }
 
-.btn.secondary:hover {
-  background: var(--radium-green);
-  color: var(--radium-dark);
-}
-
-.btn.small {
-  padding: 0.5rem 1.2rem;
+.card p {
   font-size: 0.9rem;
+  color: #aaa;
 }
 
-/* ===== Popup ===== */
+/* ==== NOTIFY BOX ==== */
+.notify-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(20,20,20,0.95);
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: center;  /* ✅ จาก space-between → center */
+  align-items: center;
+  gap: 1rem; /* ✅ เพิ่มช่องว่างระหว่างข้อความกับปุ่ม */
+  flex-wrap: wrap; /* ✅ ให้ย่อเป็นหลายบรรทัดบนจอเล็ก */
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
+  z-index: 999;
+  text-align: center; /* ✅ จัดข้อความกลางเมื่อ wrap */
+}
+
+.notify-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #ddd;
+  max-width: 600px; /* ✅ จำกัดความกว้างข้อความ */
+}
+
+
+/* ==== POPUP ==== */
 .popup {
   position: fixed;
   top: 0;
@@ -161,30 +239,68 @@ body {
   color: var(--radium-green);
 }
 
-.popup-content ul, .popup-content ol {
-  margin: 0.5rem 0 1rem 1.5rem;
-  color: #ccc;
-}
-
-.popup-content li {
-  margin-bottom: 0.3rem;
-}
-
-/* ===== Animations ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fade-in { animation: fadeIn 1s ease forwards; }
-.fade-in-up { animation: fadeIn 1.2s ease forwards; }
-
-/* ===== Footer ===== */
 footer {
   text-align: center;
   padding: 2rem;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: #777;
-  border-top: 1px solid #222;
   margin-top: 3rem;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-card {
+    padding: 1.5rem;
+  }
+
+  .hero-card h2 {
+    font-size: 1.5rem;
+  }
+}
+/* ==== NAVBAR ==== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: rgba(10, 10, 10, 0.6); /* โปร่งใสเล็กน้อย */
+  backdrop-filter: blur(10px);        /* เบลอพื้นหลังแบบ Apple-style */
+  display: flex;
+  align-items: center;
+  z-index: 1001; /* สูงกว่า popup */
+}
+
+.navbar .logo {
+  height: 40px;
+  filter: drop-shadow(0 0 6px rgba(0,255,136,0.4));
+}
+/* ==== FOMO Button ==== */
+.btn.fomo {
+  background: var(--radium-green);
+  color: var(--radium-dark);
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
+  border-radius: 14px;
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  font-size: 1rem;
+}
+
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(0,255,136,0.6); }
+  70%  { box-shadow: 0 0 0 18px rgba(0,255,136,0); }
+  100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
 }
