@@ -9,10 +9,16 @@ function closeDetail() {
   document.getElementById("detailPopup").classList.add("hidden");
 }
 
-// ==== Framework Redirect ====
-// ==== Framework Redirect with Tracking ====
+// ==== Framework Redirect with Tracking & Loading Button ====
 function openFramework() {
   console.log("📌 User clicked Start Framework");
+
+  // จับปุ่มที่กด
+  const btn = document.querySelector(".btn.framework");
+  btn.textContent = "⏳ กำลังโหลด...";
+  btn.disabled = true;
+  btn.style.opacity = "0.6";
+  btn.style.cursor = "not-allowed";
 
   liff.init({ liffId: "2007908663-nyGaxRLe" })
     .then(() => {
@@ -38,7 +44,7 @@ function openFramework() {
       });
     })
     .then(() => {
-      // เมื่อ track เสร็จ → พา user ไปที่ LIFF Framework
+      // ✅ เสร็จแล้วเปิด LIFF Framework
       liff.openWindow({
         url: "https://inginiaos-liff.netlify.app/",
         external: false
@@ -47,9 +53,15 @@ function openFramework() {
     .catch(err => {
       console.error("❌ Error in openFramework:", err);
       alert("⚠️ เกิดข้อผิดพลาด โปรดลองอีกครั้ง");
+    })
+    .finally(() => {
+      // คืนค่าปุ่มกลับมา
+      btn.textContent = "🚀 เริ่มการวิเคราะห์ฟรี!";
+      btn.disabled = false;
+      btn.style.opacity = "1";
+      btn.style.cursor = "pointer";
     });
 }
-
 
 // ==== Subscribe to Notify (LINE LIFF + Make Webhook) ====
 function subscribeNotify() {
