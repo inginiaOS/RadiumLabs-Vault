@@ -1,25 +1,19 @@
-function openFramework() {
-  const tag = "RadiumLabsFramework";
-
-  // ยิง webhook ไปเก็บ Lead + Tag
-  fetch("https://your-make-webhook-url", {
-    method:"POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      tag: tag,
-      time: new Date(),
-      source: "RadiumLabs-Vault"
-    })
-  }).catch(err => console.error(err));
-
-  // Redirect ไปที่ RadiumLabs Framework (LIFF)
-  window.location.href = "https://inginiaos-liff.netlify.app/";
-}
-
+// เปิด Popup รายละเอียด
 function openDetail() {
   document.getElementById("detailPopup").classList.remove("hidden");
 }
 
+// ปิด Popup รายละเอียด
 function closeDetail() {
   document.getElementById("detailPopup").classList.add("hidden");
+}
+
+// เปิด Framework Analysis (Radium Framework Automation)
+function openFramework() {
+  window.location.href = "https://inginiaos-liff.netlify.app/";
+}
+
+// สมัครรับการแจ้งเตือน
+function subscribeNotify() {
+  alert("✅ คุณจะได้รับการแจ้งเตือนผ่าน LINE เมื่อมีเครื่องมือใหม่ๆ!");
 }
