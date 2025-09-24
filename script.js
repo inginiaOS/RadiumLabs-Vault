@@ -12,7 +12,10 @@ function closeDetail() {
 // ==== Framework Redirect ====
 function openFramework() {
   console.log("📌 Redirecting to Radium Framework Analysis");
-  window.location.href = "https://inginiaos-liff.netlify.app/";
+  liff.openWindow({
+    url: "https://inginiaos-liff.netlify.app/",
+    external: false // ✅ เปิดใน LINE Browser
+  });
 }
 
 // ==== Subscribe to Notify (LINE LIFF + Make Webhook) ====
