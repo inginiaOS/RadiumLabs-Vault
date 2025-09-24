@@ -4,35 +4,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RadiumLabs แล็ปการตลาด</title>
-
+  <!-- ✅ Navbar -->
+  <nav class="navbar">
+    <a href="#">
+      <img src="https://img5.pic.in.th/file/secure-sv1/Artboard-3c7b4072eb9de0261.md.png" 
+           alt="RadiumLabs Logo" class="logo">
+    </a>
+  </nav>
   <!-- ฟอนต์ -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;600&family=Prompt:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- LINE LIFF SDK -->
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header fade-in">
-    <img src="https://img5.pic.in.th/file/secure-sv1/Artboard-3c7b4072eb9de0261.md.png" 
-         alt="RadiumLabs Logo" class="logo"/>
-    <h1>RadiumLabs แล็ปการตลาด</h1>
-    <p>Exclusive Tools & Frameworks สำหรับ SME ไทย</p>
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>RadiumLabs แล็ปการตลาด</h1>
+        <p>
+          ที่นี่คือพื้นที่ทดลองการตลาดมันส์ๆ ในยุค AI 🚀  
+          วิเคราะห์ธุรกิจของคุณ + รับรายงานเชิงกลยุทธ์แบบส่วนตัวทันที  
+          <br><br>
+          และยังมีเครื่องมือใหม่ๆ ที่จะตามมาอีกเพียบ!
+        </p>
+        <!-- ปุ่มใน Hero Section ถูกลบออกตามคำขอ -->
+      </div>
+    </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Framework Card -->
   <section class="hero-freebie fade-in-up">
     <div class="hero-card">
       <div class="badge">🔥 Available Now</div>
       <h2>Radium Framework Automation</h2>
       <p>
-        ระบบวิเคราะห์ธุรกิจอัตโนมัติผ่าน <strong>Make + Google Sheets</strong> 
-        เพื่อสร้างรายงานกลยุทธ์การตลาดที่ Personalized และส่งกลับไปใน LINE ของคุณ
+        ระบบวิเคราะห์ธุรกิจอัตโนมัติผ่าน <strong>Make + Google Sheets</strong>  
+        เพื่อสร้างรายงานกลยุทธ์การตลาดที่ Personalized  
+        และส่งกลับไปใน LINE ของคุณทันที
       </p>
-      <div class="btn-group">
-        <button class="btn secondary" onclick="openDetail()">เรียนรู้เพิ่มเติม</button>
-        <button class="btn" onclick="openFramework()">เริ่มการวิเคราะห์ฟรี!</button>
-      </div>
+      <button class="btn" onclick="openDetail()">รายละเอียดเพิ่มเติม</button>
     </div>
   </section>
 
@@ -55,32 +70,66 @@
         <li>ส่งรายงานกลับ LINE OA ของลูกค้า</li>
       </ol>
 
-      <p><strong>Output (Official Business Report – Free Version)</strong></p>
+      <p><strong>Output (Report – Free Version)</strong></p>
       <ul>
-        <li>ภาพรวมธุรกิจ (Segment + เหตุผล)</li>
+        <li>ภาพรวมธุรกิจ + Segment</li>
         <li>คำแนะนำเชิงกลยุทธ์ (Priority, Budget Split, ช่องทางคุ้มค่า)</li>
-        <li>แผนการตลาด (Funnel, Retargeting, Drop-off)</li>
-        <li>Quick Wins (สิ่งที่ทำได้ใน 7 วัน)</li>
+        <li>แผนการตลาด (Funnel, Retargeting)</li>
+        <li>Quick Wins 7 วันแรก</li>
       </ul>
 
-      <p><strong>Upsell (880 Version – สิทธิ์จำกัด)</strong></p>
+      <p><strong>Upsell (880 Version)</strong></p>
       <ul>
         <li>Deep-Dive Competitor Map</li>
         <li>Custom Full Funnel Plan</li>
         <li>Profit Optimization Model</li>
-        <li>Ready-to-Launch Assets (Content Brief + Ads Template)</li>
-        <li>1:1 Strategy Call</li>
+        <li>Ready-to-Launch Assets</li>
+        <li>1:1 Strategy Call (10 สิทธิ์/เดือน)</li>
       </ul>
 
       <div class="btn-group">
-        <button class="btn small" onclick="closeDetail()">ปิด</button>
+        <button class="btn small secondary" onclick="closeDetail()">ปิด</button>
         <button class="btn" onclick="openFramework()">เริ่มการวิเคราะห์ฟรี!</button>
       </div>
     </div>
   </div>
 
+  <!-- Upcoming Tools -->
+  <section class="coming-soon fade-in-up">
+    <h3>🚀 Tools ที่กำลังจะมา</h3>
+    <div class="freebie-grid">
+      <div class="card placeholder">
+        <div class="icon">📅</div>
+        <h4>Content Calendar Pro</h4>
+        <p>เครื่องมือจัดการ Content Calendar อัตโนมัติ</p>
+      </div>
+
+      <div class="card placeholder">
+        <div class="icon">✍️</div>
+        <h4>Ad Copy Swipe File</h4>
+        <p>รวมข้อความโฆษณาที่ปิดการขายได้จริง</p>
+      </div>
+
+      <div class="card placeholder">
+        <div class="icon">📈</div>
+        <h4>SME Growth Checklist</h4>
+        <p>เช็กลิสต์การตลาดสำหรับธุรกิจ SME ไทย</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notify Box (Sticky Bottom) -->
+<div class="notify-box">
+  <p>
+    🚀 อยากเป็นคนแรกที่ได้ปลดล็อกเครื่องมือการตลาด AI สุดล้ำจาก <strong>RadiumLabs</strong>?<br>
+    🌟 สิทธิ์ Early Access เฉพาะคุณ – รับแจ้งเตือนทันทีเมื่อมีของใหม่!
+  </p>
+  <button class="btn fomo" onclick="subscribeNotify()">⚡ รับการแจ้งเตือน</button>
+</div>
+
+
   <!-- Footer -->
-  <footer class="fade-in">
+  <footer>
     © 2025 RadiumLabs · แล็ปการตลาด
   </footer>
 
