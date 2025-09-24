@@ -13,25 +13,37 @@ body {
   overflow-x: hidden;
 }
 
+/* ==== NAVBAR ==== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+.navbar .logo {
+  height: 40px;
+  filter: drop-shadow(0 0 6px rgba(0,255,136,0.4));
+}
+
 /* ==== HERO SECTION ==== */
 .hero-section {
   position: relative;
-  min-height: 60vh;          /* ใช้ min-height แทน height fix */
-  height: auto;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: url("...") center/cover no-repeat;
+  background: url("https://img5.pic.in.th/file/secure-sv1/unnamed2b9fcba0b85c2c85.png") center/cover no-repeat;
   color: white;
   overflow: hidden;
-  padding: 4rem 1rem 6rem;   /* คุมระยะด้วย padding */
+  padding: 4rem 1rem 3rem;
 }
-
-.hero-section::after {
-  height: 60px;              /* ลด curve ลง */
-}
-
 .hero-overlay {
   background: rgba(0,0,0,0.55);
   width: 100%;
@@ -42,13 +54,11 @@ body {
   flex-direction: column;
   padding: 2rem;
 }
-
 .hero-content h1 {
   font-size: 2.8rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 20px rgba(0,255,136,0.6);
 }
-
 .hero-content p {
   max-width: 700px;
   margin: 0 auto 2rem;
@@ -56,19 +66,17 @@ body {
   color: #eee;
   line-height: 1.6;
 }
-
-/* ✅ Apple-style Curve */
+/* Apple-style Curve */
 .hero-section::after {
   content: "";
   position: absolute;
   bottom: -1px;
   left: 0;
   width: 100%;
-  height: 150px;
+  height: 100px;
   background: var(--radium-dark);
   clip-path: ellipse(100% 100% at 50% 100%);
 }
-
 
 /* ==== BUTTONS ==== */
 .btn {
@@ -82,35 +90,21 @@ body {
   font-size: 1rem;
   transition: all 0.3s ease;
 }
-
 .btn:hover {
   background: #00cc6a;
   box-shadow: 0 0 15px rgba(0,255,136,0.5);
   transform: translateY(-2px);
 }
-
-.btn.small {
-  font-size: 0.9rem;
-  padding: 0.6rem 1.2rem;
-}
-
-.btn.secondary {
-  background: transparent;
-  color: var(--radium-green);
-  border: 1.5px solid var(--radium-green);
-}
-
-.btn.secondary:hover {
-  background: rgba(0,255,136,0.1);
-}
+.btn.small { font-size: 0.9rem; padding: 0.6rem 1.2rem; }
+.btn.secondary { background: transparent; color: var(--radium-green); border: 1.5px solid var(--radium-green); }
+.btn.secondary:hover { background: rgba(0,255,136,0.1); }
 
 /* ==== HERO CARD ==== */
 .hero-freebie {
   max-width: 900px;
-  margin: 0rem auto; /* ลดช่องว่างลง */
+  margin: -40px auto 0; /* ดึงการ์ดขึ้นมาใกล้ Hero */
   padding: 0 1rem;
 }
-
 .hero-card {
   background: var(--radium-card);
   padding: 2.5rem;
@@ -119,43 +113,21 @@ body {
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .hero-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 12px 30px rgba(0,255,136,0.25);
 }
-
-.hero-card h2 {
-  font-size: 1.8rem;
-  color: var(--radium-green);
-  margin: 1rem 0;
-}
-
-.hero-card p {
-  font-size: 1rem;
-  color: #ddd;
-  margin-bottom: 2rem;
-}
+.hero-card h2 { font-size: 1.8rem; color: var(--radium-green); margin: 1rem 0; }
+.hero-card p { font-size: 1rem; color: #ddd; margin-bottom: 2rem; }
 
 /* ==== COMING SOON ==== */
-.coming-soon {
-  max-width: 1100px;
-  margin: 3rem auto 6rem;
-  padding: 0 1rem;
-}
-
-.coming-soon h3 {
-  color: #ccc;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
+.coming-soon { max-width: 1100px; margin: 3rem auto 6rem; padding: 0 1rem; }
+.coming-soon h3 { color: #ccc; margin-bottom: 1.5rem; text-align: center; }
 .freebie-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
 }
-
 .card {
   background: var(--radium-card);
   border-radius: 20px;
@@ -164,26 +136,13 @@ body {
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 .card:hover {
   transform: translateY(-5px) scale(1.02);
   box-shadow: 0 8px 20px rgba(0,255,136,0.2);
 }
-
-.card .icon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.card h4 {
-  color: var(--radium-green);
-  margin: 0.5rem 0;
-}
-
-.card p {
-  font-size: 0.9rem;
-  color: #aaa;
-}
+.card .icon { font-size: 2rem; margin-bottom: 1rem; }
+.card h4 { color: var(--radium-green); margin: 0.5rem 0; }
+.card p { font-size: 0.9rem; color: #aaa; }
 
 /* ==== NOTIFY BOX ==== */
 .notify-box {
@@ -194,23 +153,15 @@ body {
   background: rgba(20,20,20,0.95);
   padding: 1rem 1.5rem;
   display: flex;
-  justify-content: center;   /* จัดกลาง */
+  justify-content: center;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;           /* ย่อเป็นหลายบรรทัดได้ */
+  flex-wrap: wrap;
   box-shadow: 0 -4px 20px rgba(0,0,0,0.5);
   z-index: 999;
   text-align: center;
 }
-
-.notify-box p {
-  margin: 0;
-  font-size: 0.95rem;
-  color: #ddd;
-  max-width: 600px;          /* จำกัดความกว้างข้อความ */
-  flex: 1 1 100%;            /* ให้กินเต็มบรรทัดใน mobile */
-}
-
+.notify-box p { margin: 0; font-size: 0.95rem; color: #ddd; max-width: 600px; flex: 1 1 100%; }
 
 /* ==== POPUP ==== */
 .popup {
@@ -225,11 +176,7 @@ body {
   justify-content: center;
   z-index: 1000;
 }
-
-.hidden {
-  display: none !important;
-}
-
+.hidden { display: none !important; }
 .popup-content {
   background: var(--radium-card);
   padding: 2rem;
@@ -241,60 +188,8 @@ body {
   max-height: 80vh;
   overflow-y: auto;
 }
+.popup-content h2 { margin-bottom: 1rem; color: var(--radium-green); }
 
-.popup-content h2 {
-  margin-bottom: 1rem;
-  color: var(--radium-green);
-}
-
-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #777;
-  margin-top: 3rem;
-}
-
-/* ==== RESPONSIVE ==== */
-@media (max-width: 768px) {
-  .hero-section {
-    height: 70vh;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-  }
-
-  .hero-card {
-    padding: 1.5rem;
-  }
-
-  .hero-card h2 {
-    font-size: 1.5rem;
-  }
-}
-/* ==== NAVBAR ==== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0.8rem 1.5rem;
-  background: rgba(10, 10, 10, 0.6); /* โปร่งใสเล็กน้อย */
-  backdrop-filter: blur(10px);        /* เบลอพื้นหลังแบบ Apple-style */
-  display: flex;
-  align-items: center;
-  z-index: 1001; /* สูงกว่า popup */
-}
-
-.navbar .logo {
-  height: 40px;
-  filter: drop-shadow(0 0 6px rgba(0,255,136,0.4));
-}
 /* ==== FOMO Button ==== */
 .btn.fomo {
   background: var(--radium-green);
@@ -306,9 +201,19 @@ footer {
   animation: pulse 1.5s infinite;
   font-size: 1rem;
 }
-
 @keyframes pulse {
   0%   { box-shadow: 0 0 0 0 rgba(0,255,136,0.6); }
   70%  { box-shadow: 0 0 0 18px rgba(0,255,136,0); }
   100% { box-shadow: 0 0 0 0 rgba(0,255,136,0); }
+}
+
+footer { text-align: center; padding: 2rem; font-size: 0.9rem; color: #777; margin-top: 3rem; }
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .hero-section { min-height: 60vh; padding: 3rem 1rem 2rem; }
+  .hero-content h1 { font-size: 2rem; }
+  .hero-content p { font-size: 1rem; }
+  .hero-card { padding: 1.5rem; }
+  .hero-card h2 { font-size: 1.5rem; }
 }
