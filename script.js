@@ -15,5 +15,31 @@ function openFramework() {
 
 // สมัครรับการแจ้งเตือน
 function subscribeNotify() {
-  alert("✅ คุณจะได้รับการแจ้งเตือนผ่าน LINE เมื่อมีเครื่องมือใหม่ๆ!");
+  liff.init({ liffId: "2007908663-nyGaxRLe" })
+    .then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        return liff.getProfile();
+      }
+    })
+    .then(profile => {
+      // ส่ง userId + displayName ไป Make Webhook
+      return fetch("https://hook.eu2.make.com/4lmcb99if8p9e2x9oj16ednpx3q66u9g", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lineUserId: profile.userId,
+          displayName: profile.displayName,
+          action: "subscribe_notify"
+        })
+      });
+    })
+    .then(() => {
+      alert("🚀 สมัครรับแจ้งเตือนเรียบร้อยแล้ว!");
+    })
+    .catch(err => {
+      console.error("Error:", err);
+      alert("❌ เกิดข้อผิดพลาด โปรดลองใหม่");
+    });
 }
