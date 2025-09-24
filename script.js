@@ -19,26 +19,27 @@ function openFramework() {
 function subscribeNotify() {
   console.log("📌 subscribeNotify() called");
 
-  // LIFF init
+  const btn = document.querySelector(".btn.fomo");
+  btn.textContent = "⏳ กำลังสมัคร...";
+  btn.disabled = true; // ปิดปุ่มชั่วคราว
+  btn.style.opacity = "0.6";
+  btn.style.cursor = "not-allowed";
+
   liff.init({ liffId: "2007908663-nyGaxRLe" })
     .then(() => {
       console.log("✅ LIFF init success");
 
       if (!liff.isLoggedIn()) {
-        console.log("⚠️ User not logged in → redirect to LINE Login");
+        console.log("⚠️ Not logged in → redirecting");
         liff.login();
       } else {
-        console.log("✅ User is logged in → fetching profile");
         return liff.getProfile();
       }
     })
     .then(profile => {
-      if (!profile) {
-        throw new Error("⚠️ Profile not found after login");
-      }
+      if (!profile) throw new Error("⚠️ Profile not found");
       console.log("👤 Profile:", profile);
 
-      // ส่งไปที่ Make Webhook
       return fetch("https://hook.eu2.make.com/4lmcb99if8p9e2x9oj16ednpx3q66u9g", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -51,15 +52,22 @@ function subscribeNotify() {
       });
     })
     .then(res => {
-      console.log("📤 Webhook response status:", res.status);
+      console.log("📤 Webhook status:", res.status);
       if (res.ok) {
         alert("🚀 สมัครรับแจ้งเตือนเรียบร้อยแล้ว!");
       } else {
-        alert("⚠️ ส่งข้อมูลไปยังเซิร์ฟเวอร์ไม่สำเร็จ (" + res.status + ")");
+        alert("⚠️ ส่งข้อมูลไม่สำเร็จ (" + res.status + ")");
       }
     })
     .catch(err => {
-      console.error("❌ Error in subscribeNotify:", err);
+      console.error("❌ subscribeNotify error:", err);
       alert("❌ เกิดข้อผิดพลาด โปรดลองใหม่อีกครั้ง");
+    })
+    .finally(() => {
+      // ✅ คืนค่าปุ่มกลับมา
+      btn.textContent = "⚡ สมัครก่อนใคร";
+      btn.disabled = false;
+      btn.style.opacity = "1";
+      btn.style.cursor = "pointer";
     });
 }
