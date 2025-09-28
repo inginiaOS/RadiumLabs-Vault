@@ -336,3 +336,23 @@ footer {
   z-index: 1002;
   position: relative;
 }
+/* ✅ กันหน้าเว็บเลื่อนไปซ้าย-ขวา */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;  /* กันชัวร์ */
+}
+
+/* ✅ กัน element กว้างเกิน */
+* {
+  box-sizing: border-box;
+}
+
+/* ✅ กันรูปหลุดนอกจอ */
+img {
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+}
