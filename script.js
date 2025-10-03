@@ -120,7 +120,7 @@ function subscribeNotify() {
     });
 }
 function sendTemplate() {
-  liff.init({ liffId: "YOUR_LIFF_ID" })
+  liff.init({ liffId: "2007908663-nyGaxRLe" })
     .then(() => {
       if (!liff.isLoggedIn()) {
         liff.login();
