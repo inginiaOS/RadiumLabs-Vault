@@ -119,3 +119,25 @@ function subscribeNotify() {
       btn.style.cursor = "pointer";
     });
 }
+function sendTemplate() {
+  liff.init({ liffId: "YOUR_LIFF_ID" })
+    .then(() => {
+      if (!liff.isLoggedIn()) {
+        liff.login();
+      } else {
+        return liff.sendMessages([
+          {
+            type: "text",
+            text: `🎁 นี่คือ Notion Template ฟรีจาก RadiumLabs ครับ 🚀\n\n👉 ลิงก์: https://cake-house-cff.notion.site/v-1-2-inginiaOS-LITE-by-RadiumLabs-2818322f7c0a80409334df3f4caa7373\n\n⚡ วิธีใช้งาน:\n1. กดลิงก์ด้านบน\n2. กดปุ่ม "Duplicate" ที่มุมขวาบน\n3. เทมเพลตจะถูกบันทึกเข้า Workspace ของคุณทันที`
+          }
+        ]);
+      }
+    })
+    .then(() => {
+      console.log("✅ ส่งข้อความเรียบร้อย");
+      liff.closeWindow(); // ปิด LIFF อัตโนมัติหลังส่งเสร็จ
+    })
+    .catch(err => {
+      console.error("❌ Error:", err);
+    });
+}
