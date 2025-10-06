@@ -120,7 +120,7 @@ function subscribeNotify() {
     });
 }
 function sendTemplate() {
-    const btn = document.querySelector(".btn.template");
+      const btn = document.querySelector(".btn.template");
 
   // ✅ เปลี่ยนสถานะปุ่มชั่วคราว
   btn.textContent = "⏳ กรุณารอสักครู่...";
