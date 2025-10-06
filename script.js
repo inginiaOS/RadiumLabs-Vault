@@ -120,6 +120,14 @@ function subscribeNotify() {
     });
 }
 function sendTemplate() {
+    const btn = document.querySelector(".btn.template");
+
+  // ✅ เปลี่ยนสถานะปุ่มชั่วคราว
+  btn.textContent = "⏳ กรุณารอสักครู่...";
+  btn.disabled = true;
+  btn.style.opacity = "0.6";
+  btn.style.cursor = "not-allowed";
+  
   liff.init({ liffId: "2007908663-nyGaxRLe" }) // ✅ ใช้ LIFF ID จริง
     .then(() => {
       if (!liff.isLoggedIn()) {
